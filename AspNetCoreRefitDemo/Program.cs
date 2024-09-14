@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var authToken = "***WRITE YOUR API READ ACCESS TOKEN HERE";
+var authToken = builder.Configuration["AuthToken"];
 var refitSettings = new RefitSettings()
 {
     AuthorizationHeaderValueGetter = (rq, ct) => Task.FromResult(authToken),
